@@ -1,0 +1,35 @@
+import unittest
+import calc
+
+class TestCalc(unittest.TestCase):
+   def test_add(self):
+       self.assertEqual(calc.add(10,5),15)
+       self.assertEqual(calc.add(10,-3),7)
+       self.assertEqual(calc.add(-4,-3),-7)
+       self.assertEqual(calc.add(4,0),4)
+
+   def test_sub(self):
+       self.assertEqual(calc.sub(10,5),5)
+       self.assertEqual(calc.sub(-10,-5),-5)
+       self.assertEqual(calc.sub(-10,5),-15)
+       self.assertEqual(calc.sub(10,5),5)
+   def test_mul(self):
+       self.assertEqual(calc.mul(10,5),50)
+       self.assertEqual(calc.mul(10,0),0)
+       self.assertEqual(calc.mul(0,1),0)
+   def test_divide(self):
+       self.assertEqual(calc.divide(10,5),2)
+       self.assertEqual(calc.divide(5,2.0), 2.5)
+ 
+      # self.assertRaises(ValueError, calc.divide, 5, 0)
+       with self.assertRaises(ValueError):
+            calc.divide(10,0)
+
+
+   def test_mod(self):
+       self.assertEqual(calc.mod(10,5),0)
+       self.assertEqual(calc.mod(9,5),4)
+
+
+if __name__ == '__main__':
+    unittest.main()
